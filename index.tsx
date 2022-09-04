@@ -401,6 +401,13 @@ const IMAGE_R = new RegExp(
   '^!\\[(' + LINK_INSIDE + ')\\]\\(' + LINK_HREF_AND_TITLE + '\\)'
 )
 
+const AB_LINK_HREF_AND_TITLE = 
+     '\\s*<?((?:[^\\s\\\\]|\\\\.)*)>?(?:\\s+[\'"]([\\s\\S]*?)[\'"])?\\s*'
+
+const AB_IMAGE_R = new RegExp(
+  '^!\\[(' + LINK_INSIDE + ')\\]\\(' + AB_LINK_HREF_AND_TITLE + '\\)'
+)
+
 const NON_PARAGRAPH_BLOCK_SYNTAXES = [
   BLOCKQUOTE_R,
   CODE_BLOCK_R,
@@ -1314,7 +1321,7 @@ export function compiler(
     },
 
     image: {
-      _match: simpleInlineRegex(IMAGE_R),
+      _match: simpleInlineRegex(AB_IMAGE_R),
       _order: Priority.HIGH,
       _parse(capture /*, parse, state*/) {
         return {

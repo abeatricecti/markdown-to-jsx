@@ -645,6 +645,17 @@ describe('images', () => {
     `)
   })
 
+  it('should handle an image with src with parentheses', () => {
+    render(compiler('![test](https://c.v.com/f:f(8x7:3x9)/c.com/1.0.jpg "bar")'))
+
+    expect(root.innerHTML).toMatchInlineSnapshot(`
+      <img alt="test"
+           title="bar"
+           src="https://c.v.com/f:f(8x7:3x9)/c.com/1.0.jpg"
+      >
+    `)
+  })
+
   it('should handle an image reference', () => {
     render(
       compiler(theredoc`

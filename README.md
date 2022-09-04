@@ -581,3 +581,9 @@ See [Github Releases](https://github.com/probablyup/markdown-to-jsx/releases).
 Like this library? It's developed entirely on a volunteer basis; chip in a few bucks if you can at my [Patreon](https://www.patreon.com/bePatron?u=27436864).
 
 MIT
+
+## AB_README
+
+```
+node_modules/.bin/jest -t 'images should handle an image with src with parentheses'
+```
